@@ -1,5 +1,4 @@
 import React from 'react'
-import AnswerButton from './AnswerButton';
 import uniqid from 'uniqid';
 
 export default function Question({question, correct_answer, incorrect_answers, selectQuestion, userSelections}){
