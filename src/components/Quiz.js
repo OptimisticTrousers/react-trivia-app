@@ -6,14 +6,15 @@ import uniqid from 'uniqid';
 export default function Quiz({handleStart, hasStartedQuiz, questions}){
     
     
-    const [selectedAnswers, setSelectedAnswers] = React.useState(populateState())
+    const [selectedAnswers, setSelectedAnswers] = React.useState(() => populateState())
     
     
     function populateState(){
         const newArray = []
         
         for(let i = 0; i < questions.length; i++){
-            newArray.push({question: questions[i].question, userSelections: [
+            const question = questions[i].question
+            const userSelections = [
                 {
                     answer: questions[i].correct_answer,
                     isSelected: false
@@ -30,12 +31,15 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
                     answer: questions[i].incorrect_answers[2],
                     isSelected: false
                 }
-            ]})
+            ]
+            const randomlySortedQuestions = userSelections.sort(() => Math.random() - 0.5)
+            
+            newArray.push({question, userSelections: randomlySortedQuestions})
         }
         
         return newArray
     }
-    
+
     function selectQuestion(questionInfo){
         setSelectedAnswers(prevAnswers => {
             return prevAnswers.map(prevAnswer => {
