@@ -5,7 +5,7 @@ import uniqid from 'uniqid';
 
 export default function App() {
     
-    const [hasStartedQuiz, setHasStartedQuiz] = React.useState(false)
+    const [isQuizOver, setIsQuizOver] = React.useState(false)
     
     const [questions, setQuestions] = React.useState([])
     
@@ -14,15 +14,15 @@ export default function App() {
     }, [])
     
     function handleStart(){
-        setHasStartedQuiz(prevValue => !prevValue)
+        setIsQuizOver(prevValue => !prevValue)
     }
     
     return (
         <main>
-            {hasStartedQuiz ? 
+            {isQuizOver ? 
             <Quiz 
                 key={uniqid()}
-                hasStartedQuiz={hasStartedQuiz} 
+                isQuizOver={isQuizOver} 
                 questions={questions}
                 handleStart={handleStart}
             /> : <Start handleStart={handleStart}/>}

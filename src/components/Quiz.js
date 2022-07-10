@@ -3,13 +3,17 @@ import Question from './ui/Question'
 import Button from './ui/Button'
 import uniqid from 'uniqid';
 
-export default function Quiz({handleStart, hasStartedQuiz, questions}){
+export default function Quiz({handleStart, isQuizOver, questions}){
     
     
     const [selectedAnswers, setSelectedAnswers] = React.useState(() => populateState())
 
+    const [isQuizSubmitted, setIsQuizSubmitted] = React.useState(false)
 
-    
+    function handleSubmit(){
+        setIsQuizSubmitted(prevValue => !prevValue)
+    }
+
     function populateState(){
         const newArray = []
         
@@ -18,19 +22,23 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
             const userSelections = [
                 {
                     answer: questions[i].correct_answer,
-                    isSelected: false
+                    isSelected: false,
+                    correct: true,
                 },
                 {
                     answer: questions[i].incorrect_answers[0],
-                    isSelected: false
+                    isSelected: false,
+                    correct: false,
                 },
                 {
                     answer: questions[i].incorrect_answers[1],
-                    isSelected: false
+                    isSelected: false,
+                    correct: false,
                 },
                 {
                     answer: questions[i].incorrect_answers[2],
-                    isSelected: false
+                    isSelected: false,
+                    correct: false,
                 }
             ]
             const randomlySortedQuestions = userSelections.sort(() => Math.random() - 0.5)
@@ -48,7 +56,7 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
                 if(questionInfo.question === prevAnswer.question){
                     return {question: prevAnswer.question, userSelections: prevAnswer.userSelections.map(userSelection => {
                         return userSelection.answer === questionInfo.answer ? {...userSelection, isSelected: !userSelection.isSelected} : {...userSelection, isSelected: false}
-                    })}
+                    })} 
                 }
                 return {question:prevAnswer.question, userSelections: prevAnswer.userSelections}
             })
@@ -63,11 +71,13 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
     console.log(correctAnswers)
 
         const correctNumberOfAnswers = selectedAnswers.map(selectedAnswer => {
-            return selectedAnswer.userSelections.some((userSelection, index) => {
-                console.log(userSelection)
-                return correctAnswers[index] === userSelection.answer
-            }) || "NOT ANSWERED"
+            return selectedAnswer.userSelections.find((userSelection, index) => {
+                console.log(userSelection.answer, correctAnswers[index], userSelection.isSelected)
+                return userSelection.correct
+            })
         })
+
+        handleSubmit()
 
         console.log(selectedAnswers)
         console.log(correctNumberOfAnswers)
@@ -81,6 +91,7 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
             question={selectedAnswer.question} 
             selectQuestion={selectQuestion}
             userSelections={selectedAnswers[index].userSelections}
+            isQuizSubmitted={isQuizSubmitted}
         />
     })
         
