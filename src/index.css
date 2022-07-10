@@ -104,9 +104,13 @@ h2.question {
 .button-container{
     display: flex;
     background-color: inherit;
-    justify-content: center;
+    justify-content: space-between;
 }
 
 .opaque{
     opacity: 0.5;
+}
+
+.score{
+    font-weight: bold;
 }

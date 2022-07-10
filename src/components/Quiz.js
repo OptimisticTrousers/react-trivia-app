@@ -73,14 +73,11 @@ export default function Quiz({handleStart, questions}){
             })
         })
 
-
         const correctAnswers = correctNumberOfAnswers.filter(answer => answer.isSelected && answer.correct).length
 
         setScore(correctAnswers)
 
         handleSubmit()
-
-
     }
     
     const newQuestions = selectedAnswers.map((selectedAnswer, index) => 
@@ -93,7 +90,6 @@ export default function Quiz({handleStart, questions}){
             isQuizSubmitted={isQuizSubmitted}
         />
     })
-        
     
     return (
         <div className="quiz-container">
@@ -101,8 +97,8 @@ export default function Quiz({handleStart, questions}){
                 {newQuestions}
             </div>
             <div className="button-container">
+                {isQuizSubmitted && <p className="score">{`You scored ${score} / ${questions.length} correct answers`}</p>}
                 <Button handleClick={isQuizSubmitted ? handleStart : checkAnswers} value={isQuizSubmitted ? "Play again" : "Check answers"}/>
-                {isQuizSubmitted && <p>{`You scored ${score} / ${questions.length}`}</p>}
             </div>
         </div>
     )
