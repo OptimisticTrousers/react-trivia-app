@@ -94,3 +94,7 @@ h2.question {
     background-color: inherit;
     justify-content: center;
 }
+
+.opaque{
+    opacity: 0.5;
+}

@@ -11,9 +11,16 @@ export default function Question({question, selectQuestion, userSelections, isQu
         if(!answerData.correct && answerData.isSelected && isQuizSubmitted) return {backgroundColor: "#F8BCBC"}
     }
 
+
     const allAnswers = userSelections.map((answerData) => {
 
-        return <button key={uniqid()} style={determineStyle(answerData)} className="answer-button" onClick={() => selectQuestion({question, answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
+        const styles = determineStyle(answerData)
+
+        function makeAnswersOpaque(){
+            if(!(styles.backgroundColor === "#94D7A2" && isQuizSubmitted)) return "opaque"
+        }
+
+        return <button key={uniqid()} style={styles} className={`answer-button ${isQuizSubmitted ? makeAnswersOpaque() : ""}`} onClick={() => selectQuestion({question, answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
     })
     
     
