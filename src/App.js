@@ -13,8 +13,6 @@ export default function App() {
     React.useEffect(() => {
         fetch('https://opentdb.com/api.php?amount=5&type=multiple').then(res => res.json()).then(data => {
             const array = data.results
-            console.log(array)
-
             const decodedArray = array.map(question => {
                 return {question: decode(question.question), correct_answer: decode(question.correct_answer), incorrect_answers: question.incorrect_answers.map(incorrectAnswer => decode(incorrectAnswer))}
             })
