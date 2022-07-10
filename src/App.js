@@ -5,8 +5,8 @@ import uniqid from 'uniqid';
 
 export default function App() {
     
-    const [isQuizOver, setIsQuizOver] = React.useState(false)
-    
+    const [isQuizOver, setIsQuizOver] = React.useState(() => false)
+
     const [questions, setQuestions] = React.useState([])
     
     React.useEffect(() => {

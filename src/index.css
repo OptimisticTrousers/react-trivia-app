@@ -51,6 +51,18 @@ main {
     border-radius: 15px;
 }
 
+.main-button:hover {
+    transition: all ease-in-out 0.2s;
+    color: #4D5B9E;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid black;
+}
+
+.main-button:active {
+    box-shadow: inset 5px 5px 10px -3px rgba(0, 0, 0, 0.7);
+}
+
 .answer-button {
     height: max-content;
     background-color: #F5F7FB;
