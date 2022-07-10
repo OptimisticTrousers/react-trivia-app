@@ -107,6 +107,7 @@ h2.question {
 .button-container{
     display: flex;
     justify-content: space-between;
+    gap: 1rem;
 }
 
 .opaque{
