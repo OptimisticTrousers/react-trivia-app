@@ -97,8 +97,8 @@ export default function Quiz({handleStart, questions}){
                 {newQuestions}
             </div>
             <div className="button-container">
-                {isQuizSubmitted && <p className="score">{`You scored ${score} / ${questions.length} correct answers`}</p>}
                 <Button handleClick={isQuizSubmitted ? handleStart : checkAnswers} value={isQuizSubmitted ? "Play again" : "Check answers"}/>
+                {isQuizSubmitted && <p className="score">{`You scored ${score} / ${questions.length} correct answers`}</p>}
             </div>
         </div>
     )
