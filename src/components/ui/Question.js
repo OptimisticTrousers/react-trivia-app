@@ -12,10 +12,10 @@ export default function Question({question, selectQuestion, userSelections, isQu
         }
 
         const quizEndStyle = {
-            backgroundColor: answerData.correct ? "#94D7A2" : "#F8BCBC"
+            backgroundColor: answerData.isSelected && answerData.correct ? "#94D7A2" : "#F8BCBC"
         }
 
-        return <button key={uniqid()} style={isQuizSubmitted ? quizEndStyle : regularStyle} className="answer-button" onClick={() => selectQuestion({question, answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
+        return <button key={uniqid()} style={regularStyle} className="answer-button" onClick={() => selectQuestion({question, answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
     })
     
     

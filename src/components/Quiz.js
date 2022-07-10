@@ -8,7 +8,9 @@ export default function Quiz({handleStart, isQuizOver, questions}){
     
     const [selectedAnswers, setSelectedAnswers] = React.useState(() => populateState())
 
-    const [isQuizSubmitted, setIsQuizSubmitted] = React.useState(false)
+    const [isQuizSubmitted, setIsQuizSubmitted] = React.useState(() => false)
+
+    const [score, setScore] = React.useState({correctAnswers: 0, wrongAnswers: 0})
 
     function handleSubmit(){
         setIsQuizSubmitted(prevValue => !prevValue)
@@ -65,22 +67,30 @@ export default function Quiz({handleStart, isQuizOver, questions}){
 
     function checkAnswers(){
 
-        const correctAnswers = questions.map(question => {
+        const allCorrectAnswers = questions.map(question => {
             return question.correct_answer
         })
-    console.log(correctAnswers)
 
         const correctNumberOfAnswers = selectedAnswers.map(selectedAnswer => {
             return selectedAnswer.userSelections.find((userSelection, index) => {
-                console.log(userSelection.answer, correctAnswers[index], userSelection.isSelected)
+                console.log(userSelection.answer, allCorrectAnswers[index], userSelection.isSelected)
                 return userSelection.correct
             })
         })
+
+
+        const correctAnswers = correctNumberOfAnswers.filter(answer => answer.isSelected && answer.correct).length
+
+        const wrongAnswers = correctNumberOfAnswers.length - correctAnswers
+
+        console.log(correctAnswers, wrongAnswers)
+        setScore({correctAnswers, wrongAnswers})
 
         handleSubmit()
 
         console.log(selectedAnswers)
         console.log(correctNumberOfAnswers)
+
 
     }
     
@@ -103,6 +113,7 @@ export default function Quiz({handleStart, isQuizOver, questions}){
             </div>
             <div className="button-container">
                 <Button handleClick={checkAnswers} value={"Check answers"}/>
+                {isQuizSubmitted && <p>{`You scored ${score.correctAnswers} / ${score.wrongAnswers}`}</p>}
             </div>
         </div>
     )
