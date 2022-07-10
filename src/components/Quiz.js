@@ -37,20 +37,21 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
     
     function selectQuestion(questionInfo){
         setSelectedAnswers(prevAnswers => {
-            return [prevAnswers.question, prevAnswers.userSelections.map(prevAnswer => {
-                return prevAnswer.question === questionInfo.question ? {...prevAnswer, isSelected: !prevAnswer.isSelected} : prevAnswer
-            })]      
+            return prevAnswers.map(prevAnswer => {
+                return [prevAnswer.question, prevAnswer.userSelections.map(userSelection => {
+                    return questionInfo.answer === userSelection.answer ? {...userSelection, isSelected: !userSelection.isSelected} : userSelection
+                })]
+            })
         })
     }
     
-    
-    const newQuestions = questions.map(question => 
+    const newQuestions = questions.map((question, index) => 
     {
        return <Question 
             key={question.question} 
             question={question.question} 
             selectQuestion={selectQuestion}
-            userSelections={selectedAnswers.userSelections}
+            userSelections={selectedAnswers[index].userSelections}
             correct_answer={question.correct_answer} 
             incorrect_answers={question.incorrect_answers}
         />

@@ -1,6 +1,7 @@
 import React from 'react'
 import Start from './components/Start'
 import Quiz from './components/Quiz'
+import uniqid from 'uniqid';
 
 export default function App() {
     
@@ -20,7 +21,7 @@ export default function App() {
         <main>
             {hasStartedQuiz ? 
             <Quiz 
-                key={"gokoko"}
+                key={uniqid()}
                 hasStartedQuiz={hasStartedQuiz} 
                 questions={questions}
                 handleStart={handleStart}

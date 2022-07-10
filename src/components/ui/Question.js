@@ -4,12 +4,14 @@ import AnswerButton from './AnswerButton';
 export default function Question({question, correct_answer, incorrect_answers, selectQuestion, userSelections}){
     
     const allAnswers = [correct_answer, ...incorrect_answers]
+
+    console.log(userSelections)
     
     
     const questionData = allAnswers.map((answer, index) => {
         
         const hasUserSelected = userSelections[index].answer === answer ? true : false
-        return <AnswerButton key={answer} selectQuestion={() => selectQuestion({answer, isSelected: hasUserSelected})} answer={answer} hasUserSelected={hasUserSelected} />
+        return <AnswerButton key={answer} selectQuestion={selectQuestion} answer={userSelections[index].answer} hasUserSelected={hasUserSelected} />
     })
     
     const randomlySortedQuestions = questionData.sort(() => Math.random() - 0.5)
