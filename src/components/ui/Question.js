@@ -11,7 +11,7 @@ export default function Question({question, correct_answer, incorrect_answers, s
             backgroundColor: answerData.isSelected ? "#D6DBF5" : "#F5F7FB"
         }
 
-        return <button key={uniqid()} style={styles} className="answer-button" onClick={() => selectQuestion({answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
+        return <button key={uniqid()} style={styles} className="answer-button" onClick={() => selectQuestion({question, answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
     })
     
     

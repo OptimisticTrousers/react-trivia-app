@@ -40,12 +40,17 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
         return newArray
     }
 
+    console.log(selectedAnswers)
+    
     function selectQuestion(questionInfo){
         setSelectedAnswers(prevAnswers => {
-            return prevAnswers.map(prevAnswer => {
-                return {question: prevAnswer.question, userSelections: prevAnswer.userSelections.map(userSelection => {
-                    return questionInfo.answer === userSelection.answer ? {...userSelection, isSelected: !userSelection.isSelected} : {...userSelection, isSelected: false}
-                })}
+            return prevAnswers.map((prevAnswer) => {
+                if(questionInfo.question === prevAnswer.question){
+                    return {question: prevAnswer.question, userSelections: prevAnswer.userSelections.map(userSelection => {
+                        return userSelection.answer === questionInfo.answer ? {...userSelection, isSelected: !userSelection.isSelected} : {...userSelection, isSelected: false}
+                    })}
+                }
+                return {question:prevAnswer.question, userSelections: prevAnswer.userSelections}
             })
         })
     }
