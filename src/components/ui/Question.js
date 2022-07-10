@@ -5,10 +5,10 @@ export default function Question({question, selectQuestion, userSelections, isQu
     
 
     function determineStyle(answerData){
+        if(answerData.correct && isQuizSubmitted) return {backgroundColor: "#94D7A2"}
         if(!answerData.isSelected) return {backgroundColor: '#F5F7FB'}
         if(answerData.isSelected && !isQuizSubmitted) return {backgroundColor: "#D6DBF5"}
         if(!answerData.correct && answerData.isSelected && isQuizSubmitted) return {backgroundColor: "#F8BCBC"}
-        if(answerData.correct && answerData.isSelected && isQuizSubmitted) return {backgroundColor: "#94D7A2"}
     }
 
     const allAnswers = userSelections.map((answerData) => {
