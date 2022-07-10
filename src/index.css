@@ -26,7 +26,7 @@ main {
     justify-content: center;
     align-items: center;
     background-image: url(./images/left-blob.png), url(./images/right-blob.png);
-    background-position: top right, left bottom;
+    background-position: left bottom, top right;
     background-repeat: no-repeat;
 }
 
