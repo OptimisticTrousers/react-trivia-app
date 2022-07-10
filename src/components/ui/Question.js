@@ -4,11 +4,13 @@ import uniqid from 'uniqid';
 
 export default function Question({question, correct_answer, incorrect_answers, selectQuestion, userSelections}){
     
-    const stuff = [correct_answer, ...incorrect_answers]
-   console.log(userSelections) 
+
     const questionData = userSelections.map((answerData) => {
 
-        return <button key={uniqid()} className="answer-button" onClick={() => selectQuestion({answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
+    const styles = {
+        backgroundColor: answerData.isSelected ? "#D6DBF5" : "#F5F7FB"
+    }
+        return <button key={uniqid()} style={styles} className="answer-button" onClick={() => selectQuestion({answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
         //return <AnswerButton key={answer} selectQuestion={selectQuestion} answer={userSelections[index].answer} hasUserSelected={hasUserSelected} />
     })
     
