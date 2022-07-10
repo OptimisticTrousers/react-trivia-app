@@ -1,6 +1,7 @@
 import React from 'react'
 import Question from './ui/Question'
 import Button from './ui/Button'
+import uniqid from 'uniqid';
 
 export default function Quiz({handleStart, hasStartedQuiz, questions}){
     
@@ -48,7 +49,7 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
     const newQuestions = questions.map((question, index) => 
     {
        return <Question 
-            key={question.question} 
+            key={uniqid()} 
             question={question.question} 
             selectQuestion={selectQuestion}
             userSelections={selectedAnswers[index].userSelections}
