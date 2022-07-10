@@ -27,7 +27,7 @@ main {
     align-items: center;
     overflow-y:scroll;
     background-image: url(./images/left-blob.png), url(./images/right-blob.png);
-    background-position: left bottom, top right;
+    background-position: -23% 110%, 110% -3%;
     background-repeat: no-repeat;
 }
 
