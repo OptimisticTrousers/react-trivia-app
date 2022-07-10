@@ -1,7 +1,7 @@
 import React from 'react'
 import uniqid from 'uniqid';
 
-export default function Question({question, correct_answer, incorrect_answers, selectQuestion, userSelections}){
+export default function Question({question, selectQuestion, userSelections}){
     
 
 

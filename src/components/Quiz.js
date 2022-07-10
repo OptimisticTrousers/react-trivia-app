@@ -7,7 +7,8 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
     
     
     const [selectedAnswers, setSelectedAnswers] = React.useState(() => populateState())
-    
+
+
     
     function populateState(){
         const newArray = []
@@ -40,8 +41,7 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
         return newArray
     }
 
-    console.log(selectedAnswers)
-    
+
     function selectQuestion(questionInfo){
         setSelectedAnswers(prevAnswers => {
             return prevAnswers.map((prevAnswer) => {
@@ -54,16 +54,33 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
             })
         })
     }
+
+    function checkAnswers(){
+
+        const correctAnswers = questions.map(question => {
+            return question.correct_answer
+        })
+    console.log(correctAnswers)
+
+        const correctNumberOfAnswers = selectedAnswers.map(selectedAnswer => {
+            return selectedAnswer.userSelections.some((userSelection, index) => {
+                console.log(userSelection)
+                return correctAnswers[index] === userSelection.answer
+            }) || "NOT ANSWERED"
+        })
+
+        console.log(selectedAnswers)
+        console.log(correctNumberOfAnswers)
+
+    }
     
-    const newQuestions = questions.map((question, index) => 
+    const newQuestions = selectedAnswers.map((selectedAnswer, index) => 
     {
        return <Question 
             key={uniqid()} 
-            question={question.question} 
+            question={selectedAnswer.question} 
             selectQuestion={selectQuestion}
             userSelections={selectedAnswers[index].userSelections}
-            correct_answer={question.correct_answer} 
-            incorrect_answers={question.incorrect_answers}
         />
     })
         
@@ -74,7 +91,7 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
                 {newQuestions}
             </div>
             <div className="button-container">
-                <Button handleClick={handleStart} value={"Check answers"}/>
+                <Button handleClick={checkAnswers} value={"Check answers"}/>
             </div>
         </div>
     )
