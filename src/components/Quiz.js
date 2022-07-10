@@ -40,7 +40,7 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
         setSelectedAnswers(prevAnswers => {
             return prevAnswers.map(prevAnswer => {
                 return {question: prevAnswer.question, userSelections: prevAnswer.userSelections.map(userSelection => {
-                    return questionInfo.answer === userSelection.answer ? {...userSelection, isSelected: !userSelection.isSelected} : userSelection
+                    return questionInfo.answer === userSelection.answer ? {...userSelection, isSelected: !userSelection.isSelected} : {...userSelection, isSelected: false}
                 })}
             })
         })
