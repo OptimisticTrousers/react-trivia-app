@@ -39,9 +39,9 @@ export default function Quiz({handleStart, hasStartedQuiz, questions}){
     function selectQuestion(questionInfo){
         setSelectedAnswers(prevAnswers => {
             return prevAnswers.map(prevAnswer => {
-                return [prevAnswer.question, prevAnswer.userSelections.map(userSelection => {
+                return {question: prevAnswer.question, userSelections: prevAnswer.userSelections.map(userSelection => {
                     return questionInfo.answer === userSelection.answer ? {...userSelection, isSelected: !userSelection.isSelected} : userSelection
-                })]
+                })}
             })
         })
     }

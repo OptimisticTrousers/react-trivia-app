@@ -1,17 +1,15 @@
 import React from 'react'
 import AnswerButton from './AnswerButton';
+import uniqid from 'uniqid';
 
 export default function Question({question, correct_answer, incorrect_answers, selectQuestion, userSelections}){
     
-    const allAnswers = [correct_answer, ...incorrect_answers]
+    const stuff = [correct_answer, ...incorrect_answers]
+   console.log(userSelections) 
+    const questionData = userSelections.map((answerData) => {
 
-    console.log(userSelections)
-    
-    
-    const questionData = allAnswers.map((answer, index) => {
-        
-        const hasUserSelected = userSelections[index].answer === answer ? true : false
-        return <AnswerButton key={answer} selectQuestion={selectQuestion} answer={userSelections[index].answer} hasUserSelected={hasUserSelected} />
+        return <button key={uniqid()} className="answer-button" onClick={() => selectQuestion({answer: answerData.answer, isSelected: answerData.isSelected })}>{answerData.answer}</button>
+        //return <AnswerButton key={answer} selectQuestion={selectQuestion} answer={userSelections[index].answer} hasUserSelected={hasUserSelected} />
     })
     
     const randomlySortedQuestions = questionData.sort(() => Math.random() - 0.5)
