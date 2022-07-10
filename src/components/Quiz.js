@@ -67,13 +67,8 @@ export default function Quiz({handleStart, questions}){
 
     function checkAnswers(){
 
-        const allCorrectAnswers = questions.map(question => {
-            return question.correct_answer
-        })
-
         const correctNumberOfAnswers = selectedAnswers.map(selectedAnswer => {
-            return selectedAnswer.userSelections.find((userSelection, index) => {
-                console.log(userSelection.answer, allCorrectAnswers[index], userSelection.isSelected)
+            return selectedAnswer.userSelections.find((userSelection) => {
                 return userSelection.correct
             })
         })
@@ -81,15 +76,9 @@ export default function Quiz({handleStart, questions}){
 
         const correctAnswers = correctNumberOfAnswers.filter(answer => answer.isSelected && answer.correct).length
 
-        const wrongAnswers = correctNumberOfAnswers.length - correctAnswers
-
-        console.log(correctAnswers, wrongAnswers)
-        setScore({correctAnswers, wrongAnswers})
+        setScore(correctAnswers)
 
         handleSubmit()
-
-        console.log(selectedAnswers)
-        console.log(correctNumberOfAnswers)
 
 
     }
@@ -113,7 +102,7 @@ export default function Quiz({handleStart, questions}){
             </div>
             <div className="button-container">
                 <Button handleClick={isQuizSubmitted ? handleStart : checkAnswers} value={isQuizSubmitted ? "Play again" : "Check answers"}/>
-                {isQuizSubmitted && <p>{`You scored ${score.correctAnswers} / ${questions.length}`}</p>}
+                {isQuizSubmitted && <p>{`You scored ${score} / ${questions.length}`}</p>}
             </div>
         </div>
     )
