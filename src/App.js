@@ -11,7 +11,7 @@ export default function App() {
     
     React.useEffect(() => {
         fetch('https://opentdb.com/api.php?amount=5&type=multiple').then(res => res.json()).then(data => setQuestions(data.results))
-    }, [])
+    }, [isQuizOver])
     
     function handleStart(){
         setIsQuizOver(prevValue => !prevValue)

@@ -3,7 +3,7 @@ import Question from './ui/Question'
 import Button from './ui/Button'
 import uniqid from 'uniqid';
 
-export default function Quiz({handleStart, isQuizOver, questions}){
+export default function Quiz({handleStart, questions}){
     
     
     const [selectedAnswers, setSelectedAnswers] = React.useState(() => populateState())
@@ -112,8 +112,8 @@ export default function Quiz({handleStart, isQuizOver, questions}){
                 {newQuestions}
             </div>
             <div className="button-container">
-                <Button handleClick={checkAnswers} value={"Check answers"}/>
-                {isQuizSubmitted && <p>{`You scored ${score.correctAnswers} / ${score.wrongAnswers}`}</p>}
+                <Button handleClick={isQuizSubmitted ? handleStart : checkAnswers} value={isQuizSubmitted ? "Play again" : "Check answers"}/>
+                {isQuizSubmitted && <p>{`You scored ${score.correctAnswers} / ${questions.length}`}</p>}
             </div>
         </div>
     )
