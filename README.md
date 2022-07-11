@@ -1,4 +1,4 @@
-<h1 align="center">CV-Application</h1>
+<h1 align="center">React Trivia App</h1>
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.2-blue.svg?cacheSeconds=2592000" />
   <img alt="Version" src="https://img.shields.io/badge/library-React-white.svg?cacheSeconds=2592000" />
