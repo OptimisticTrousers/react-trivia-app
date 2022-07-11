@@ -12,7 +12,6 @@ export default class App extends Component {
     }
     
     componentDidUpdate() {
-        console.log("Component did update", this.state.isQuizOver)
         if(this.state.isQuizOver === true && this.state.questions.length === 0){
             fetch('https://opentdb.com/api.php?amount=5&type=multiple').then(res => res.json()).then(data => {
                 const array = data.results
