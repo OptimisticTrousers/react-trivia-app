@@ -1,70 +1,32 @@
-# Getting Started with Create React App
+<h1 align="center">CV-Application</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.2-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/library-React-white.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/editor-VSCode-black.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/language-HTML-red.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/language-CSS-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/language-Javascript-yellow.svg?cacheSeconds=2592000" />
+  <img src="https://user-images.githubusercontent.com/36343664/140670372-17255e8e-1ab5-41fd-ad85-c1944afa9825.png" alt = "HTML, CSS, and Javascript"width="600" height = "424"</a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+</p>
 
-## Available Scripts
+> Created a trivia game app.
+> User can answer 5 questions randomly generated from the Open Trivia API Database.
+> User can see score.
 
-In the project directory, you can run:
+> Making fun game with a nice UI.
+> Biggest challenge was making the content edible using conditional rendering, which is the most complex logic of the application.
+> Had problems with the data being fetched twice when the user starts the quiz. Switched to a class component and adding a conditional in componentDidUpdate lifecycle method.
 
-### `npm start`
+### 🏠 [Homepage](https://github.com/OptimisticTrousers/reactCalculator)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Author
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+👤 **Tony Isern **
 
-### `npm test`
+* Github: [@OptimisticTrousers ](https://github.com/OptimisticTrousers )
+* LinkedIn: [@ https:\/\/www.linkedin.com\/in\/tony-isern-9717a0189\/]
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Installation
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+* Clone repo, cd into directory, then run <strong>npm start</strong>. 
