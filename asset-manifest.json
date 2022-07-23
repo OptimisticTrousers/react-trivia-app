@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/react-trivia-app/static/css/main.575749bb.css",
+    "main.js": "/react-trivia-app/static/js/main.a45d6acb.js",
+    "index.html": "/react-trivia-app/index.html",
+    "main.575749bb.css.map": "/react-trivia-app/static/css/main.575749bb.css.map",
+    "main.a45d6acb.js.map": "/react-trivia-app/static/js/main.a45d6acb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.575749bb.css",
+    "static/js/main.a45d6acb.js"
+  ]
+}
